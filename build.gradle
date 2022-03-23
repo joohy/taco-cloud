@@ -1,0 +1,75 @@
+buildscript {
+    ext {
+        springBootVersion = '2.6.4'
+        dependencyManagementVersion = '1.0.11.RELEASE'
+        asciidoctorVersion = '1.5.8'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath "io.spring.gradle:dependency-management-plugin:0.6.0.RELEASE"
+    }
+}
+
+ext {
+    set('snippetsDir', file("build/generated-snippets"))
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    group = 'com.action.in'
+    version = '0.0.1-SNAPSHOT'
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter-actuator'
+//        implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+//        implementation 'org.springframework.boot:spring-boot-starter-security'
+        implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+//        implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+        compileOnly 'org.projectlombok:lombok'
+        developmentOnly 'org.springframework.boot:spring-boot-devtools'
+        annotationProcessor 'org.projectlombok:lombok'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+//        testImplementation 'org.springframework.security:spring-security-test'
+        // https://mvnrepository.com/artifact/org.hamcrest/hamcrest-all
+        testImplementation group: 'org.hamcrest', name: 'hamcrest-all', version: '1.3'
+        implementation 'org.apache.commons:commons-lang3:3.5'
+        implementation 'org.apache.commons:commons-collections4:4.1'
+
+    }
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+//tasks.named('test') {
+//    outputs.dir snippetsDir
+//    useJUnitPlatform()
+//}
+//
+//tasks.named('asciidoctor') {
+//    inputs.dir snippetsDir
+//    dependsOn test
+//}
+
+
+project('taco-cloud-app'){
+
+    dependencies {
+        // 컴파일시 core 모듈을 가져온다.
+        implementation project(':taco-cloud-core')
+
+    }
+
+}
