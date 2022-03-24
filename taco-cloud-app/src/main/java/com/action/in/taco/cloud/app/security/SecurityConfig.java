@@ -42,6 +42,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.logout()
 		.logoutSuccessUrl("/")
 		.and()
+		.logout()
+		.logoutSuccessUrl("/")
+		.and()
 		.csrf();
 	}
 
@@ -77,16 +80,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		// 아래 코드는 책의 JDBC 기반 사용자 스토어 예제 코드입니다.
 
 
-		auth
-		.jdbcAuthentication()
-		.dataSource(dataSource)
-		.usersByUsernameQuery(
-			"select username, password, enabled from users " +
-			"where username=?")
-		.authoritiesByUsernameQuery(
-			"select username, authority from authorities " +
-			"where username=?")
-		.passwordEncoder(new NoEncodingPasswordEncoder());
+//		auth
+//		.jdbcAuthentication()
+//		.dataSource(dataSource)
+//		.usersByUsernameQuery(
+//			"select username, password, enabled from users " +
+//			"where username=?")
+//		.authoritiesByUsernameQuery(
+//			"select username, authority from authorities " +
+//			"where username=?")
+//		.passwordEncoder(new NoEncodingPasswordEncoder());
 		
 		// 아래 코드는 책의 인메모리 기반 사용자 스토어 예제 코드입니다.
 		/*auth.inMemoryAuthentication()

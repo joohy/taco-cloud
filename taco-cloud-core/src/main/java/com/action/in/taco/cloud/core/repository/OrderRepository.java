@@ -11,6 +11,6 @@ import java.util.List;
 @Repository
 public interface OrderRepository extends CrudRepository<Order, String> {
 
-//    List<Order> findByUserOrderByPlacedAtDesc(User user, Pageable pageable);
+    List<Order> findByUserOrderByPlacedAtDesc(User user, Pageable pageable);
 //    Order save(Order order);
 }

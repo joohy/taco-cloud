@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+
+    <!-- 콘솔 로그 출력 -->
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <charset>UTF-8</charset>
+            <Pattern>%d [%thread] %-5level %logger{35} [%file:%line] - %msg%n</Pattern>
+        </encoder>
+    </appender>
+    <root>
+        <level value="info" />
+        <appender-ref ref="stdout" />
+    </root>
+</configuration>

@@ -15,6 +15,4 @@ public class TacoCloudAppApplication {
         SpringApplication.run(TacoCloudAppApplication.class, args);
     }
 
-
-
 }
