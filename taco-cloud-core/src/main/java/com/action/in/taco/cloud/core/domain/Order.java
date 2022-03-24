@@ -4,6 +4,8 @@ import lombok.Data;
 import org.hibernate.validator.constraints.CreditCardNumber;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
@@ -16,6 +18,7 @@ import java.util.List;
 @Entity
 @Table(name="Taco_Order")
 public class Order {
+    @Id
     private Long id;
 
     @NotBlank(message="Name is required")
@@ -44,6 +47,7 @@ public class Order {
     private String ccCVV;
     private Date placedAt;
 
+    @ManyToMany(targetEntity=Taco.class)
     private List<Taco> tacos = new ArrayList<>();
     public void addDesign(Taco design) {
         this.tacos.add(design);

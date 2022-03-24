@@ -31,10 +31,8 @@ subprojects {
     dependencies {
         implementation 'org.springframework.boot:spring-boot-starter-validation'
         implementation 'org.springframework.boot:spring-boot-starter-actuator'
-        implementation ('org.springframework.boot:spring-boot-starter-data-jpa'){
-            exclude(module: 'hibernate-entitymanager')
-        }
-//        implementation 'org.springframework.boot:spring-boot-starter-security'
+        implementation ('org.springframework.boot:spring-boot-starter-data-jpa')
+        implementation 'org.springframework.boot:spring-boot-starter-security'
         implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
         implementation 'org.springframework.boot:spring-boot-starter-web'
 //        implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
@@ -43,12 +41,15 @@ subprojects {
         annotationProcessor 'org.projectlombok:lombok'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
         testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
-//        testImplementation 'org.springframework.security:spring-security-test'
+        testImplementation 'org.springframework.security:spring-security-test'
         // https://mvnrepository.com/artifact/org.hamcrest/hamcrest-all
         testImplementation group: 'org.hamcrest', name: 'hamcrest-all', version: '1.3'
         implementation 'org.apache.commons:commons-lang3:3.5'
         implementation 'org.apache.commons:commons-collections4:4.1'
         implementation 'org.eclipse.persistence:eclipselink:2.5.2'
+        implementation 'org.mariadb.jdbc:mariadb-java-client:1.7.4'
+        // https://mvnrepository.com/artifact/junit/junit
+        testImplementation group: 'junit', name: 'junit', version: '4.13.2'
 
     }
 
@@ -68,12 +69,9 @@ subprojects {
 //}
 
 
-project('taco-cloud-app'){
-
+project(':taco-cloud-app'){
     dependencies {
-        // 컴파일시 core 모듈을 가져온다.
-        implementation project(':taco-cloud-core')
-
+        compileOnly project(':taco-cloud-core')
     }
 
 }

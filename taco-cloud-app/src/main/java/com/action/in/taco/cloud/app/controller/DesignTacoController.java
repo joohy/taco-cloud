@@ -7,7 +7,9 @@ import com.action.in.taco.cloud.core.domain.Taco;
 import com.action.in.taco.cloud.core.domain.Type;
 import com.action.in.taco.cloud.core.repository.IngredientRepository;
 import com.action.in.taco.cloud.core.repository.TacoRepository;
+import com.action.in.taco.cloud.core.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -25,12 +27,17 @@ import java.util.stream.Collectors;
 @SessionAttributes("order")
 public class DesignTacoController {
 
+    @Autowired
+    private final IngredientRepository ingredientRepository;
+    @Autowired
     private TacoRepository tacoRepository;
-    private IngredientRepository ingredientRepository;
+    @Autowired
+    private UserRepository userRepository;
 
-    public DesignTacoController(TacoRepository tacoRepository, IngredientRepository ingredientRepository) {
-        this.tacoRepository = tacoRepository;
+    public DesignTacoController(IngredientRepository ingredientRepository, TacoRepository tacoRepository, UserRepository userRepository) {
         this.ingredientRepository = ingredientRepository;
+        this.tacoRepository = tacoRepository;
+        this.userRepository = userRepository;
     }
 
     @GetMapping
