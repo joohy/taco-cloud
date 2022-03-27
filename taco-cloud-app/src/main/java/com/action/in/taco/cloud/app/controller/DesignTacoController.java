@@ -26,13 +26,11 @@ import java.util.stream.Collectors;
 @SessionAttributes("order")
 public class DesignTacoController {
 
-    @Autowired
     private final IngredientRepository ingredientRepository;
-    @Autowired
-    private TacoRepository tacoRepository;
-    @Autowired
-    private UserRepository userRepository;
+    private final TacoRepository tacoRepository;
+    private final UserRepository userRepository;
 
+    @Autowired
     public DesignTacoController(IngredientRepository ingredientRepository, TacoRepository tacoRepository, UserRepository userRepository) {
         this.ingredientRepository = ingredientRepository;
         this.tacoRepository = tacoRepository;

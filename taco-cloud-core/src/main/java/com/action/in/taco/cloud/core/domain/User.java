@@ -2,10 +2,7 @@ package com.action.in.taco.cloud.core.domain;
 
 import java.util.Arrays;
 import java.util.Collection;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core
@@ -34,6 +31,7 @@ public class User implements UserDetails {
 	private final String city;
 	private final String state;
 	private final String zip;
+	@Column(name = "phone_number", nullable = false)
 	private final String phoneNumber;
 	
 	@Override
