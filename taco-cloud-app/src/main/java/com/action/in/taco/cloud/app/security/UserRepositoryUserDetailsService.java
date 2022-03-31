@@ -1,14 +1,11 @@
 package com.action.in.taco.cloud.app.security;
 
-import com.action.in.taco.cloud.core.domain.User;
-import com.action.in.taco.cloud.core.repository.UserRepository;
+import com.action.in.datastore.domain.User;
+import com.action.in.datastore.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core
-		.userdetails.UserDetails;
-import org.springframework.security.core
-		.userdetails.UserDetailsService;
-import org.springframework.security.core
-		.userdetails.UsernameNotFoundException;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 

@@ -17,7 +17,7 @@ ext {
     set('snippetsDir', file("build/generated-snippets"))
 }
 
-subprojects {
+allprojects {
     apply plugin: 'java'
     apply plugin: 'idea'
     apply plugin: 'org.springframework.boot'
@@ -32,7 +32,7 @@ subprojects {
         implementation 'org.springframework.boot:spring-boot-starter-validation'
         implementation 'org.springframework.boot:spring-boot-starter-actuator'
         implementation ('org.springframework.boot:spring-boot-starter-data-jpa')
-        implementation 'org.springframework.boot:spring-boot-starter-security'
+
         implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
         implementation 'org.springframework.boot:spring-boot-starter-web'
 //        implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
@@ -41,7 +41,7 @@ subprojects {
         annotationProcessor 'org.projectlombok:lombok'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
         testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
-        testImplementation 'org.springframework.security:spring-security-test'
+
         // https://mvnrepository.com/artifact/org.hamcrest/hamcrest-all
         testImplementation group: 'org.hamcrest', name: 'hamcrest-all', version: '1.3'
         implementation 'org.apache.commons:commons-lang3:3.5'
@@ -51,6 +51,8 @@ subprojects {
         // https://mvnrepository.com/artifact/junit/junit
         testImplementation group: 'junit', name: 'junit', version: '4.13.2'
         annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+        implementation 'org.springframework.boot:spring-boot-starter-security'
+        testImplementation 'org.springframework.security:spring-security-test'
 
     }
 
@@ -72,6 +74,21 @@ subprojects {
 
 project(':taco-cloud-app'){
     dependencies {
-        compileOnly project(':taco-cloud-core')
+        compileOnly project(':taco-cloud-core:datastore')
+        compileOnly project(':taco-cloud-core:taco-cloud-security')
     }
 }
+
+project(':taco-cloud-api'){
+    dependencies {
+        compileOnly project(':taco-cloud-core:datastore')
+        compileOnly project(':taco-cloud-core:taco-cloud-security')
+    }
+}
+
+project(':taco-cloud-core:taco-cloud-security'){
+    dependencies {
+        compileOnly project(':taco-cloud-core:datastore')
+    }
+}
+

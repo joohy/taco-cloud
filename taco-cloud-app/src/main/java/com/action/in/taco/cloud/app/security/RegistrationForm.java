@@ -1,8 +1,8 @@
 package com.action.in.taco.cloud.app.security;
 
-import com.action.in.taco.cloud.core.domain.User;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import com.action.in.datastore.domain.User;
 import lombok.Data;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Data
 public class RegistrationForm {

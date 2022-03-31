@@ -1,7 +1,7 @@
 package com.action.in.taco.cloud.app.controller;
 
-import com.action.in.taco.cloud.core.domain.Ingredient;
-import com.action.in.taco.cloud.core.repository.IngredientRepository;
+import com.action.in.datastore.domain.Ingredient;
+import com.action.in.datastore.repository.IngredientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;

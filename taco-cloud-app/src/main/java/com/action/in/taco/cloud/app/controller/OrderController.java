@@ -1,22 +1,19 @@
 package com.action.in.taco.cloud.app.controller;
 
+import com.action.in.datastore.domain.Order;
+import com.action.in.datastore.domain.User;
+import com.action.in.datastore.repository.OrderRepository;
 import com.action.in.taco.cloud.app.config.OrderProps;
-import com.action.in.taco.cloud.core.domain.Order;
-import com.action.in.taco.cloud.core.domain.User;
-import com.action.in.taco.cloud.core.repository.OrderRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import lombok.extern.slf4j.Slf4j;
-
-import org.springframework.validation.Errors;
 
 @Slf4j
 @Controller

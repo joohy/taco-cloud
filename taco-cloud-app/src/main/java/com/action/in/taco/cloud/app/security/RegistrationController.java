@@ -1,6 +1,6 @@
 package com.action.in.taco.cloud.app.security;
 
-import com.action.in.taco.cloud.core.repository.UserRepository;
+import com.action.in.datastore.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,6 @@
 rootProject.name = 'taco-cloud'
 
-include ':taco-cloud-core'
-include 'taco-cloud-app'
+include ':taco-cloud-app'
+include ':taco-cloud-api'
+include ':taco-cloud-core:taco-cloud-security'
+include ':taco-cloud-core:datastore'

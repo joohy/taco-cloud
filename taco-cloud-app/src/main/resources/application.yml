@@ -1,5 +1,6 @@
+server:
+  port: 8081
 spring:
-  port : 8090
   profiles:
     default: local
   h2:
@@ -50,3 +51,5 @@ management:
 taco:
   orders:
     page-size: 20
+server:
+  port: 8082
